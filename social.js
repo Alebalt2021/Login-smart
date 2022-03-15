@@ -6,6 +6,10 @@ $(document).ready(function(){
         $("#login-container").hide();
         $("#registro").show();
     })
+    $("#btn-iniciarsesion").click(function(){
+        $("#login-container").show();
+        $("#registro").hide();
+    })
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
