@@ -5,7 +5,6 @@ $(document).ready(function(){
     $("#btn-register").click(function(){
         $("#login-contenedor").hide();
         $("#registro").show();
-        $("#img-creare").hide();
     })
     $("#btn-iniciarsesion").click(function(){
         $("#login-contenedor").show();
