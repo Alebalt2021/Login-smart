@@ -146,6 +146,7 @@ form.sign-in-form {
   margin: 10px 0;
   cursor: pointer;
   transition: 0.5s;
+  pointer-events: all !important ;
 }
 
 .button.solid:hover {
@@ -198,7 +199,7 @@ form.sign-in-form {
 }
 
 .left-panel {
-  pointer-events: all !important;
+  pointer-events: none;
   padding: 3rem 17% 2rem 12%;
 }
 
@@ -225,6 +226,7 @@ form.sign-in-form {
 }
 
 .button.transparent {
+  pointer-events: all !important ;
   margin: 0;
   background: none;
   border: 2px solid #fff;
