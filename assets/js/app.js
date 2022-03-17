@@ -15,15 +15,15 @@ sign_in_btn.addEventListener("click", () => {
 //Contraseñas 
 var Eye = document.getElementById("#Eye");
 var input = document.getElementById("#pass-new");
-Eye.addEventListener("click", function () {
-    if (input.type === "password") {
-        input.type = "text";
-        Eye.style.opacity = 0.8;
-    } else {
-        input.type = "password";
-        Eye.style.opacity = 0.2;
-    }
-})
+Eye.addEventListener("click", () => {
+        if (input.type === "password") {
+            input.type = "text";
+            Eye.style.opacity = 0.8;
+        } else {
+            input.type = "password";
+            Eye.style.opacity = 0.2;
+        }
+    })
 
 var ojo = document.getElementById("#ojo");
 var input = document.getElementById("#pass-ojo");
