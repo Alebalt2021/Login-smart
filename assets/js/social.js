@@ -42,7 +42,7 @@ $(document).ready(function () {
         e.preventDefault();
         //Variables de inputs
         var correo = $("#mail").val();
-        var clave = $("#pass").val();
+        var clave = $("#Input").val();
 
         if (correo.length == 0 || clave.length == 0) {
             alertaComplete.style.display = 'block';
