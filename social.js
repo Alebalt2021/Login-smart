@@ -3,11 +3,12 @@ $(document).ready(function(){
     $("#content").hide();
 
     $("#btn-register").click(function(){
-        $("#login-container").hide();
+        $("#login-contenedor").hide();
         $("#registro").show();
+        $("#img-creare").hide();
     })
     $("#btn-iniciarsesion").click(function(){
-        $("#login-container").show();
+        $("#login-contenedor").show();
         $("#registro").hide();
     })
     // Your web app's Firebase configuration
@@ -55,7 +56,7 @@ $(document).ready(function(){
         //Usar servicio de firebase para crear cuenta
         auth.createUserWithEmailAndPassword(correo,clave)
         .then(userCredential=>{
-            $("#login-container").show();
+            $("#login-contenedor").show();
             $("#registro").hide();
             alert("Cuenta creada");
         })
@@ -72,7 +73,7 @@ $(document).ready(function(){
         auth.signOut().then(() => {
             alert("Sesion Cerrada");
             $("#content").hide();
-            $("#login-container").show();
+            $("#login-contenedor").show();
         })
     })
 
@@ -105,7 +106,7 @@ $(document).ready(function(){
     auth.onAuthStateChanged((user)=>{
         if(user){
             //Sesion Iniciada
-            $("#login-container").hide();
+            $("#login-contenedor").hide();
             $("#registro").hide();
             $("#content").show();
             readPosts();
@@ -114,7 +115,7 @@ $(document).ready(function(){
             //Sesion finalizada
             $("#content").hide();
             $("#desaparecido").hide();
-            $("#login-container").show();
+            $("#login-contenedor").show();
         }
     })
 

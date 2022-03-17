@@ -1,161 +1,158 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script
-      src="https://kit.fontawesome.com/64d58efce2.js"crossorigin="anonymous"
-    ></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--Bootstrap CDN
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 
-    <script
-    src="https://kit.fontawesome.com/64d58efce2.js"crossorigin="anonymous"
-    ></script>
+  <!--Bootstrap CDN-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 
-    <title>Smart dr. 👨🏻‍⚕️</title>
-  </head>
-  <body>
-    
-    <div class="container">
-      <div class="forms-container">
-        <div class="signin-signup">
+  <link rel="stylesheet" href="style.css" />
 
-          <!-- FORMULARIO (login) -->
-          <form action="#" class="sign-in-form" id="login-container">
-            <h2 class="title">Iniciar Sesion</h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" placeholder="Correo electronico" id="mail">
-            </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Contraseña" id="pass">
-            </div>
-            <input type="submit" value="Entrar" class="btn solid" id="btn-login">
-            <p class="social-text">O Iniciar sesión con redes sociales</p>
-            <div class="social-media">
-              <a href="#" class="social-icon" id="btn-login-facebook">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon" id="btn-login-google">
-                <i class="fab fa-google"></i>
-              </a>
-            </div>
-          </form>
+  <title>Smart dr. 👨🏻‍⚕️</title>
+</head>
 
-          <!-- FORMULARIO (Crear cuenta) -->
-          <form action="#" class="sign-up-form" id="registro">
-            <h2 class="title">Registrarse</h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" placeholder="Usuario">
-            </div>
-            <div class="input-field">
-              <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Correo electronico" id="mail-new">
-            </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Contraseña" id="pass-new">
-            </div>
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-              <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
-            </div>
-            <input type="submit" class="btn" value="Crear cuenta" id="btn-singup">
-            <p class="social-text">O Iniciar sesión con redes sociales</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-            </div>
-          </form>
-        </div>
-      </div>
+<body>
 
-      <!-- Panel de cambio (Circulo morado) -->
-      <div class="panels-container">
-        <div class="panel left-panel">
-          <div class="content">
-            <h3>¿Eres nuevo aquí?</h3>
-            <p>
-              TU momento ideal es ahora, anotate. Cuida de ti y tu familia
-              Contectate con Especialista de psicologia.
+  <div class="contenedor">
+    <div class="forms-contenedor">
+      <div class="signin-signup">
 
-            </p>
-            <button class="btn transparent" id="sign-up-btn">
-              <p id="btn-register">Registrate<i class="fa-solid fa-arrow-pointer"></i><a href="#registro"></a></p>
-            </button>
+        <!-- FORMULARIO (login) -->
+        <form action="#" class="sign-in-form" id="login-contenedor">
+          <h2 class="title">Iniciar Sesion</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Correo electronico" id="mail">
           </div>
-          <img src="img/2-removebg-preview (8).png" class="image" alt="" />
-        </div>
-        <div class="panel right-panel">
-          <div class="content">
-            <h3>¿Eres uno de nosotros?</h3>
-            <p>
-              Genial! Se amable con tu mente.
-              Tu salud mental tambien importa. Saca una cita con nosotros.
-            </p>
-            <button class="btn transparent" id="sign-in-btn">
-              <p id="btn-iniciarsesion">Inicia Sesion<a href="#login-container"></a></p> 
-            </button>
+          <div class="input-field">
+            <i class="icon fas fa-lock" alt="" id="Eye"></i>
+            <input type="password" placeholder="Contraseña" class="passw" id="pass-new">
           </div>
-          <img src="img/10 (1).jpg" class="image" alt="" />
-        </div>
+          <p class="social-text" style="margin-bottom: 0px;">¿Olvidaste tu contraseña?</p>
+          <input type="submit" value="Entrar" class="button solid" id="btn-login">
+          <p class="social-text">O Iniciar sesión con redes sociales</p>
+          <div class="social-media">
+            <a href="#" class="social-icon" id="btn-login-facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon" id="btn-login-google">
+              <i class="fab fa-google"></i>
+            </a>
+          </div>
+        </form>
+
+        <!-- FORMULARIO (Crear cuenta) -->
+        <form action="#" class="sign-up-form" id="registro">
+          <h2 class="title">Registrarse</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Usuario">
+          </div>
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Correo electronico" id="mail-new">
+          </div>
+          <div class="input-field">
+            <i class="icon fas fa-lock" alt="" id="ojo"></i>
+            <input type="password" placeholder="Contraseña" class="passw" id="pass-ojo">
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Acepto términos y condiciones</label>
+          </div>
+          <input type="submit" class="button" value="Crear cuenta" id="btn-singup">
+        </form>
       </div>
     </div>
 
-    <!-- POSTEAR (caja input) -->
-    <div class="card bg-dark text-white mx-auto my-4" id="content" style="border-radius: 1rem; width: 800px;">
-      <div class="card-body">
-          <form id="postForm" action="">
-          
-          <h5>Escribe tu mensaje</h5>
-          <label class="form-label" for="postText">Mensaje</label>
-              <div class="form-outline form-white mb-4">
-                  <textarea class="form-control form-control-lg" id="status-text" rows="3" maxlength="150"></textarea>
-                  <div class="mover">
-                      <span id="counter" style="line-height: 0.5;">0</span>/150
-                  </div>
-              </div>
-          <button id="btn-publish" class="btn btn-outline-light btn-lg px-5">Postear</button>
-          </form>
+    <!-- Panel de cambio (Circulo morado) -->
+    <div class="panels-contenedor">
+      <div class="panel left-panel">
+        <div class="content">
+          <h3>¿Eres nuevo aquí?</h3>
+          <p class="texto-hidden">
+            No esperes más, registrate. Cuida de ti y tu familia.
+            Conectandote con un Especialista de psicologia.
+
+          </p>
+          <button class="button transparent" id="sign-up-btn">
+            <p id="btn-register">Registrate<i class="fa-solid fa-arrow-pointer"></i><a href="#registro"></a></p>
+          </button>
+        </div>
+        <img src="img/2-removebg-preview (8).png" class="image" alt="" />
+        <img src="img/Logo_Smart_Dr_Blanco_1080x580.png" class="imagen-logo" id="img-creare" alt="">
       </div>
+      <div class="panel right-panel">
+        <div class="content">
+          <h3>¿Eres uno de nosotros?</h3>
+          <p class="texto-hidden">
+            Genial! Tu salud mental es importante. No te olvides de agendar tu cita.
+          </p>
+          <button class="button transparent" id="sign-in-btn">
+            <p id="btn-iniciarsesion">Inicia Sesion<a href="#login-container"></a></p>
+          </button>
+        </div>
+        <img src="img/10 (1).jpg" class="image" alt="" />
+        <img src="img/Logo_Smart_Dr_Blanco_1080x580.png" class="imagen-logo" id="img-inicie" alt="">
+      </div>
+    </div>
+  </div>
+
+  <!-- POSTEAR (caja input) -->
+  <div class="card bg-dark text-white mx-auto my-4" id="content" style="border-radius: 1rem; width: 800px;">
+    <div class="card-body">
+      <form id="postForm" action="">
+
+        <h5>Escribe tu mensaje</h5>
+        <label class="form-label" for="postText">Mensaje</label>
+        <div class="form-outline form-white mb-4">
+          <textarea class="form-control form-control-lg" id="status-text" rows="3" maxlength="150"></textarea>
+          <div class="mover">
+            <span id="counter" style="line-height: 0.5;">0</span>/150
+          </div>
+        </div>
+        <button id="btn-publish" class="btn btn-outline-light btn-lg px-5">Postear</button>
+      </form>
+    </div>
   </div>
 
   <div id="desaparecido">
-      <div id="post-feed">
-      
-      </div>
+    <div id="post-feed">
+
+    </div>
   </div>
 
-    <!-- CDN -> SCRIPT -->
+  <!-- CDN -> SCRIPT -->
 
-    <!-- CDN jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- CDN Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <!-- CDN Authentication Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <!-- CDN Firestore Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <!-- CDN jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- CDN Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <!-- CDN Authentication Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <!-- CDN Firestore Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
-    <script src="app.js"></script>
-  </body>
-  <script src="social.js"></script>
+  <!--CDN Bootstrap-->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+
+  <script src="app.js"></script>
+</body>
+<script src="social.js"></script>
+
 </html>
