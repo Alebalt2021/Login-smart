@@ -1,25 +1,25 @@
-$(document).ready(function(){
+$(document).ready(function () {
     $("#registro").hide();
     $("#content").hide();
 
-    $("#btn-register").click(function(){
+    $("#btn-register").click(function () {
         $("#login-contenedor").hide();
         $("#registro").show();
     })
-    $("#btn-iniciarsesion").click(function(){
+    $("#btn-iniciarsesion").click(function () {
         $("#login-contenedor").show();
         $("#registro").hide();
     })
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
-    apiKey: "AIzaSyDjSM-s3YBxgYlPtjvTk9hUqdkyOy4o8SI",
-    authDomain: "proyecto-smart-dr.firebaseapp.com",
-    projectId: "proyecto-smart-dr",
-    storageBucket: "proyecto-smart-dr.appspot.com",
-    messagingSenderId: "409233645053",
-    appId: "1:409233645053:web:0b8bebef62552beb79cd94",
-    measurementId: "G-XVSMCKDY65"
+        apiKey: "AIzaSyDjSM-s3YBxgYlPtjvTk9hUqdkyOy4o8SI",
+        authDomain: "proyecto-smart-dr.firebaseapp.com",
+        projectId: "proyecto-smart-dr",
+        storageBucket: "proyecto-smart-dr.appspot.com",
+        messagingSenderId: "409233645053",
+        appId: "1:409233645053:web:0b8bebef62552beb79cd94",
+        measurementId: "G-XVSMCKDY65"
     };
 
     //Inicializar Firebase
@@ -28,46 +28,106 @@ $(document).ready(function(){
     //Inicializar servicio de autentificacion
     const auth = firebase.auth();
 
+    //Alerts
+    const alertaError = document.querySelector("#alert-incor");
+
+    const alertaComplete = document.querySelector("#alert-comple");
+
+    const alertaError1 = document.querySelector("#alert-incor1");
+
+    const alertaComplete1 = document.querySelector("#alert-comple1");
+
     //Login o inicio de sesion
-    $("#btn-login").click(function(e){
+    $("#btn-login").click(function (e) {
         e.preventDefault();
         //Variables de inputs
         var correo = $("#mail").val();
         var clave = $("#pass").val();
+
+        if (correo.length == 0 || clave.length == 0) {
+            alertaComplete.style.display = 'block';
+            setTimeout(() => {
+                alertaComplete.style.display = 'none';
+            }, 3000);
+            return;
+        }
         //Usar servicio de login de firebase
-        auth.signInWithEmailAndPassword(correo,clave)
-        .then(userCredential=>{
-            alert("Datos Correctos");
-        })
-        .catch((error) =>{
-            let errorCode = error.code;
-            let errorMessage = error.message;
-            alert("Código: "+errorCode+ ". Mensaje: "+errorMessage);
-        }) 
+        auth.signInWithEmailAndPassword(correo, clave)
+            .then(userCredential => {
+                Swal.fire({
+                    title: 'Datos Correctos, Bienvenidos',
+                    text: 'Preciones Ok para continuar',
+                    background: "#fff",
+                    // color de fondo de la ventana[abajo]
+                    backdrop: true,
+                    timer: 8000,
+                    // tiempo de ventana [abajo]
+                    timerProgressBar: true,
+                    allowOutsideClick: false,
+                    confirmButtonColor: '#f37db4',
+
+                    imageUrl: 'assets/img/Q84E.gif',
+                    imageWidth: '340px',
+                    imageHeight: '260px',
+                    imageAlt: 'Welcolme',
+                })
+            })
+            .catch((error) => {
+                let errorCode = error.code;
+                let errorMessage = error.message;
+                alertaError.style.display = 'block';
+                setTimeout(() => {
+                    alertaError.style.display = 'none';
+                }, 3000);
+            })
     })
 
     //Singup o crear cuenta
-    $("#btn-singup").click(function(e){
+    $("#btn-singup").click(function (e) {
         e.preventDefault();
         //Variables de inputs
         var correo = $("#mail-new").val();
-        var clave = $("#pass-new").val();
+        var clave = $("#pass-ojo").val();
+
+        if (correo.length == 0 || clave.length == 0) {
+            alertaComplete1.style.display = 'block';
+            setTimeout(() => {
+                alertaComplete1.style.display = 'none';
+            }, 3000);
+            return;
+        }
+
         //Usar servicio de firebase para crear cuenta
-        auth.createUserWithEmailAndPassword(correo,clave)
-        .then(userCredential=>{
-            $("#login-contenedor").show();
-            $("#registro").hide();
-            alert("Cuenta creada");
-        })
-        .catch((error)=>{
-            let errorCode = error.code;
-            let errorMessage = error.message;
-            alert("Código: "+errorCode+". Mensaje: "+errorMessage);
-        })
+        auth.createUserWithEmailAndPassword(correo, clave)
+            .then(userCredential => {
+                $("#login-contenedor").show();
+                $("#registro").hide();
+
+                Swal.fire({
+                    title: 'Cuenta Creada',
+                    icon: 'success',
+                    text: 'Preciones Ok para continuar',
+                    background: "#fff",
+                    // color de fondo de la ventana[abajo]
+                    backdrop: true,
+                    timer: 8000,
+                    // tiempo de ventana [abajo]
+                    timerProgressBar: true,
+                    allowOutsideClick: false,
+                    confirmButtonColor: '#f37db4',
+                })
+            })
+                let errorCode = error.code;
+                let errorMessage = error.message;
+                alertaError1.style.display = 'block';
+                setTimeout(() => {
+                    alertaError1.style.display = 'none';
+                }, 3000);
+            })
     })
     //Desconexion de usuario
     //Boton LogOut
-    $("#btn-logout").click(function(e){
+    $("#btn-logout").click(function (e) {
         e.preventDefault();
         auth.signOut().then(() => {
             alert("Sesion Cerrada");
@@ -78,39 +138,39 @@ $(document).ready(function(){
 
     var provider = new firebase.auth.GoogleAuthProvider();
     //Inicar sesion con GOOGLE
-    $("#btn-login-google").click(function(e){
+    $("#btn-login-google").click(function (e) {
         e.preventDefault();
         auth.signInWithPopup(provider)
-        .then(result => {
-            alert("Ingreso con google");
-        })
-        .catch(error =>{
-            alert(error);
-        })
+            .then(result => {
+                alert("Ingreso con google");
+            })
+            .catch(error => {
+                alert(error);
+            })
     })
 
     var providerFace = new firebase.auth.FacebookAuthProvider();
     //Inciar sesion con Facebook
-    $("#btn-login-facebook").click(function(e){
+    $("#btn-login-facebook").click(function (e) {
         e.preventDefault();
         auth.signInWithPopup(providerFace)
-        .then(result => {
-            alert("Ingreso con Facebook");
-        })
-        .catch(error =>{
-            alert(error);
-        })
+            .then(result => {
+                alert("Ingreso con Facebook");
+            })
+            .catch(error => {
+                alert(error);
+            })
     })
 
-    auth.onAuthStateChanged((user)=>{
-        if(user){
+    auth.onAuthStateChanged((user) => {
+        if (user) {
             //Sesion Iniciada
             $("#login-contenedor").hide();
             $("#registro").hide();
             $("#content").show();
             readPosts();
         }
-        else{
+        else {
             //Sesion finalizada
             $("#content").hide();
             $("#desaparecido").hide();
@@ -120,7 +180,7 @@ $(document).ready(function(){
 
     const db = firebase.firestore();
     //Publicar un nuevo estado
-    $("#btn-publish").click(function(e){
+    $("#btn-publish").click(function (e) {
         e.preventDefault();
         let postText = $("#status-text").val();
         let date = new Date();
@@ -133,30 +193,30 @@ $(document).ready(function(){
             minutes: date.getMinutes(),
             seconds: date.getSeconds(),
         })
-        .then((docRef)=>{
-            alert("Estado publicado");
-            $("#status-text").val('');
-            readPosts();
-        })
-        .catch((error)=>{
-            alert(error);
-        })
+            .then((docRef) => {
+                alert("Estado publicado");
+                $("#status-text").val('');
+                readPosts();
+            })
+            .catch((error) => {
+                alert(error);
+            })
     })
 
-    function readPosts(){
-        db.collection("posts").get().then((posts)=>{
+    function readPosts() {
+        db.collection("posts").get().then((posts) => {
             listPosts(posts.docs);
         })
     }
 
-    function listPosts(data){
+    function listPosts(data) {
         var divContent = $("#post-feed");
         divContent.empty();
-        if(data.length > 0){
+        if (data.length > 0) {
             let content = "";
             data.forEach(document => {
                 let doc = document.data();
-                const divPost =`
+                const divPost = `
                 <div class="caja" style='border: solid 2px rgb(209, 171, 99)'>
                     <p style="margin-bottom: 0px; margin-bottom: -8px;" >${doc.text}</p> <br>
                     <textarea style='display: none;'></textarea>
@@ -174,91 +234,90 @@ $(document).ready(function(){
                 content += divPost;
             });
             divContent.append(content);
-                //Agregar listener a btn-delete
-                const btnDelete = document.querySelectorAll(".btn-delete-post");
-                btnDelete.forEach(btn=>{
-                    btn.addEventListener("click",(e)=>{
+            //Agregar listener a btn-delete
+            const btnDelete = document.querySelectorAll(".btn-delete-post");
+            btnDelete.forEach(btn => {
+                btn.addEventListener("click", (e) => {
                     const id = e.target.dataset.id;
                     DeletePost(id);
-                    })
                 })
-                const btnEdit = document.querySelectorAll(".btn-edit-post");
-                btnEdit.forEach(btn=>{
-                btn.addEventListener("click",(e)=>{
-                const id = e.target.dataset.id;
-                OpenEdit(e,id,btn);
+            })
+            const btnEdit = document.querySelectorAll(".btn-edit-post");
+            btnEdit.forEach(btn => {
+                btn.addEventListener("click", (e) => {
+                    const id = e.target.dataset.id;
+                    OpenEdit(e, id, btn);
                 })
             })
         }
     }
-    function OpenEdit(e,id,button){
+    function OpenEdit(e, id, button) {
         let parent = button.parentNode;
         let textEdit = $(parent).children().eq(2);
         let btnEdit = $(parent).children().eq(3);
         let btnCancel = $(parent).children().eq(4);
-        
+
         textEdit.show();
         btnEdit.show();
         btnCancel.show();
         $("#btn-editar").hide();
         $("#btn-eliminar").hide();
 
-        btnEdit.on("click",function(e){
-            SaveUpdate(e,id,textEdit.val())
+        btnEdit.on("click", function (e) {
+            SaveUpdate(e, id, textEdit.val())
         });
     }
-    
 
-    function DeletePost(id){
+
+    function DeletePost(id) {
         db.collection("posts").doc(id).delete().then(() => {
             alert("Se ha eliminado correctamente");
             readPosts();
         })
-        .catch((error) => {
-            console.error("Detalle del Error: ", error);
-        });
+            .catch((error) => {
+                console.error("Detalle del Error: ", error);
+            });
     }
-    function UpdatePost(id){
-        db.collection("posts").doc(id).get().then((doc)=>{
+    function UpdatePost(id) {
+        db.collection("posts").doc(id).get().then((doc) => {
             const post = doc.data();
             $("").val(item.post);
         })
-        .catch((error) => {
-            alert("Error: ", error);
-        });
+            .catch((error) => {
+                alert("Error: ", error);
+            });
     }
 
-    function SaveUpdate(e,id_post,text_new){
+    function SaveUpdate(e, id_post, text_new) {
         e.preventDefault();
         db.collection("posts").doc(id_post).update({
             text: text_new,
-        }).then(()=>{
+        }).then(() => {
             alert("Post Actualizado");
             readPosts();
         })
-        .catch((error)=>{
-            alert("Error:",error);
-        });
+            .catch((error) => {
+                alert("Error:", error);
+            });
 
     }
 
-    $("#btn_update").click(function(e){
+    $("#btn_update").click(function (e) {
         e.preventDefault();
         let post_upgrade = $("").val();
         let id_post = $("").val();
         db.collection("posts").doc(id_post).update({
             post: post_upgrade,
-        }).then(()=>{
+        }).then(() => {
             alert("Post Actualizado")
         })
-        .catch((error)=>{
-            alert("Error: ", error);
-        })
+            .catch((error) => {
+                alert("Error: ", error);
+            })
     })
-})
 
 //Contador de caracteres
-document.getElementById("status-text").addEventListener("input",function(){
+document.getElementById("status-text").addEventListener("input", function () {
     var input = document.getElementById("status-text");
     var p = document.getElementById("counter");
     p.innerHTML = input.value.length;

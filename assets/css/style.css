@@ -439,3 +439,23 @@ form.sign-in-form {
   background-color: #690fff;
   border-color: #6c1aff;
 }
+
+.alertVacio{
+  background-color: rgb(188, 70, 224) !important;
+  color: rgb(255, 255, 255) !important;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-right: 14px;
+  margin-left: 23px;
+  margin-right: 23px;
+}
+
+.alertError{
+  background-color: #f37db4 !important;
+  color: rgb(255, 255, 255) !important;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-right: 14px;
+  margin-left: 23px;
+  margin-right: 23px;
+}
