@@ -118,6 +118,8 @@ $(document).ready(function () {
                 }, 3000);
             })
     })
+
+    
     //Desconexion de usuario
     //Boton LogOut
     $("#btn-logout").click(function (e) {
