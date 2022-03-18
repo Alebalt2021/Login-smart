@@ -5,11 +5,13 @@ $(document).ready(function () {
     $("#btn-register").click(function () {
         $("#login-contenedor").hide();
         $("#registro").show();
-    })
+    });
+
     $("#btn-iniciarsesion").click(function () {
         $("#login-contenedor").show();
         $("#registro").hide();
     })
+
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
@@ -116,6 +118,7 @@ $(document).ready(function () {
                     confirmButtonColor: '#f37db4',
                 })
             })
+            .catch((error) => {
                 let errorCode = error.code;
                 let errorMessage = error.message;
                 alertaError1.style.display = 'block';
@@ -129,9 +132,25 @@ $(document).ready(function () {
     $("#btn-logout").click(function (e) {
         e.preventDefault();
         auth.signOut().then(() => {
-            alert("Sesion Cerrada");
+            Swal.fire({
+                title: 'Sesion Cerrada',
+                text: 'Preciones Ok para continuar',
+                background: "#fff",
+                // color de fondo de la ventana[abajo]
+                backdrop: true,
+                timer: 8000,
+                // tiempo de ventana [abajo]
+                timerProgressBar: true,
+                allowOutsideClick: false,
+                confirmButtonColor: '#f37db4',
+
+                imageUrl: 'assets/img/Adios.gif',
+                imageWidth: '340px',
+                imageHeight: '260px',
+                imageAlt: 'Good Bye'
+            })
             $("#content").hide();
-            $("#login-contenedor").show();
+            $("#formularios").show();
         })
     })
 
@@ -141,10 +160,44 @@ $(document).ready(function () {
         e.preventDefault();
         auth.signInWithPopup(provider)
             .then(result => {
-                alert("Ingreso con google");
+                Swal.fire({
+                    title: 'Ingreso con google',
+                    text: 'Preciones Ok para continuar',
+                    background: "#fff",
+                    // color de fondo de la ventana[abajo]
+                    backdrop: true,
+                    timer: 8000,
+                    // tiempo de ventana [abajo]
+                    timerProgressBar: true,
+                    allowOutsideClick: false,
+                    confirmButtonColor: '#f37db4',
+
+                    imageUrl: 'assets/img/google.gif',
+                    imageWidth: '340px',
+                    imageHeight: '260px',
+                    imageAlt: 'Google',
+                })
             })
             .catch(error => {
-                alert(error);
+                Swal.fire({
+                    title: 'No se pudo ingresar',
+                    icon: 'error',
+                    text: 'Preciones Ok para continuar',
+                    background: "#fff",
+                    // color de fondo de la ventana[abajo]
+                    backdrop: true,
+                    timer: 8000,
+                    // tiempo de ventana [abajo]
+                    timerProgressBar: true,
+                    allowOutsideClick: false,
+                    confirmButtonColor: '#f37db4',
+
+                    imageUrl: 'assets/img/google.gif',
+                    imageWidth: '300px',
+                    imageHeight: '220px',
+                    imageAlt: 'Google',
+                });
+                alert.console(error);
             })
     })
 
@@ -154,10 +207,46 @@ $(document).ready(function () {
         e.preventDefault();
         auth.signInWithPopup(providerFace)
             .then(result => {
-                alert("Ingreso con Facebook");
+                Swal.fire({
+                    title: 'Ingreso con Facebook',
+                    icon: 'success',
+                    text: 'Preciones Ok para continuar',
+                    background: "#fff",
+                    // color de fondo de la ventana[abajo]
+                    backdrop: true,
+                    timer: 8000,
+                    // tiempo de ventana [abajo]
+                    timerProgressBar: true,
+                    allowOutsideClick: false,
+                    confirmButtonColor: '#f37db4',
+
+                    imageUrl: 'assets/img/facebook.gif',
+                    imageWidth: '300px',
+                    imageHeight: '220px',
+                    imageAlt: 'Facebook',
+                })
+                    ;
             })
             .catch(error => {
-                alert(error);
+                Swal.fire({
+                    title: 'No se pudo ingresar',
+                    icon: 'error',
+                    text: 'Preciones Ok para continuar',
+                    background: "#fff",
+                    // color de fondo de la ventana[abajo]
+                    backdrop: true,
+                    timer: 8000,
+                    // tiempo de ventana [abajo]
+                    timerProgressBar: true,
+                    allowOutsideClick: false,
+                    confirmButtonColor: '#f37db4',
+
+                    imageUrl: 'assets/img/facebook.gif',
+                    imageWidth: '340px',
+                    imageHeight: '260px',
+                    imageAlt: 'Facebook',
+                });
+                alert.console(error);
             })
     })
 
@@ -166,6 +255,8 @@ $(document).ready(function () {
             //Sesion Iniciada
             $("#login-contenedor").hide();
             $("#registro").hide();
+            $("#circulo-text").hide();
+            $("#formularios").hide();
             $("#content").show();
             readPosts();
         }
@@ -193,7 +284,19 @@ $(document).ready(function () {
             seconds: date.getSeconds(),
         })
             .then((docRef) => {
-                alert("Estado publicado");
+                Swal.fire({
+                    title: 'Estado publicado',
+                    icon: 'success',
+                    text: 'Preciones Ok para continuar',
+                    background: "#fff",
+                    // color de fondo de la ventana[abajo]
+                    backdrop: true,
+                    timer: 8000,
+                    // tiempo de ventana [abajo]
+                    timerProgressBar: true,
+                    allowOutsideClick: false,
+                    confirmButtonColor: '#f37db4',
+                })
                 $("#status-text").val('');
                 readPosts();
             })
@@ -216,19 +319,42 @@ $(document).ready(function () {
             data.forEach(document => {
                 let doc = document.data();
                 const divPost = `
-                <div class="caja" style='border: solid 2px rgb(209, 171, 99)'>
-                    <p style="margin-bottom: 0px; margin-bottom: -8px;" >${doc.text}</p> <br>
+                <div class="items-post">
+                    <div class="content-parrafo-item" style="padding-bottom: 3px;margin-top: 10px;padding-top: 20px;padding-right: 5px;padding-left: 5px;">
+                        <div class="item-use">
+                        <img src="https://cdn.discordapp.com/attachments/842291717376966696/932995059022975066/38020d9bd6e501c1a04149bf8677fdca.jpg" alt="user">
+                        <h3>user</h3>
+                        </div>
+                        
+                        <div class="item-p">
+                        <div class="dropdown" style="top: -8px;right: 20px;">
+                            <label class="dropdown-toggle" data-bs-toggle="dropdown""><i class="fas fa-infinity"></i></label>
+                            <ul class="dropdown-menu">
+                                <button id="btn-editar" data-id="${document.id}" class="btn btn-edit-post mt-2 mx-2 dropdown-item"><i class="fas fa-edit lead me-2"></i>Editar</button></a></li>
+                                <button id="btn-eliminar" data-id="${document.id}" class="btn btn-delete-post mt-2 dropdown-item"><i class="fas fa-trash-alt lead me-2"></i>Eliminar</button></a></li>
+                            </ul>
+                        </div>
+                    <div class="parrafo-p"> 
+                    <p id="imten-p-content" style="margin-bottom: 0px; margin-bottom: -8px;" >${doc.text}</p>
+                    </div> 
+                    <span class="hora-minutos mt-3">Publicado el: ${doc.day}/${doc.month}/${doc.year} Hora ${doc.hours}:${doc.minutes}:${doc.seconds}.</span>
+                    <br>
+                    <br>
                     <textarea style='display: none;'></textarea>
                     <button data-id="${document.id}" style='display: none;' class="btn btn-info btn-save-post"><i class="far fa-save lead me-2"></i>Guardar</button>
                     <button style='display: none;' class="btn btn-info btn-cancel-post"><i class="fas fa-ban lead me-2"></i>Cancelar</button>
-
                     
-                    <button id="btn-editar" data-id="${document.id}" class="btn btn-warning btn-edit-post mt-2 mx-2"><i class="fas fa-edit lead me-2"></i>Editar</button>
-                    <button id="btn-eliminar" data-id="${document.id}" class="btn btn-danger btn-delete-post mt-2"><i class="fas fa-trash-alt lead me-2"></i>Eliminar</button>
-                    <span>Publicado el: ${doc.day}/${doc.month}/${doc.year} Hora ${doc.hours}:${doc.minutes}:${doc.seconds}.</span>
                     <br>
+                    <br>
+
                 </div>
-                <hr>
+                </div>
+                </div>
+                <div>
+                
+                
+                </div>
+                
                 `;
                 content += divPost;
             });
@@ -250,24 +376,32 @@ $(document).ready(function () {
             })
         }
     }
-    function OpenEdit(e, id, button) {
-        let parent = button.parentNode;
-        let textEdit = $(parent).children().eq(2);
-        let btnEdit = $(parent).children().eq(3);
-        let btnCancel = $(parent).children().eq(4);
+    function OpenEdit(id, button) {
+        let ulParent = button.parentNode;
+        let divParent = ulParent.parentNode;
+        let parent = divParent.parentNode;
+        let textEdit = $(parent).children().eq(3);
+        let btnEdit = $(parent).children().eq(4);
+        let btnCancel = $(parent).children().eq(5);
+        let btnLike = $(parent).children().eq()
 
         textEdit.show();
         btnEdit.show();
         btnCancel.show();
-        $("#btn-editar").hide();
-        $("#btn-eliminar").hide();
 
         btnEdit.on("click", function (e) {
             SaveUpdate(e, id, textEdit.val())
         });
+
+        btnCancel.on("click", function () {
+            cancelUpdate(textEdit, btnEdit, btnCancel);
+        });
     }
-
-
+    function cancelUpdate(textarea, buttonEdit, buttonCancel) {
+        textarea.hide();
+        buttonEdit.hide();
+        buttonCancel.hide();
+    }
     function DeletePost(id) {
         db.collection("posts").doc(id).delete().then(() => {
             alert("Se ha eliminado correctamente");
@@ -279,11 +413,23 @@ $(document).ready(function () {
     }
     function UpdatePost(id) {
         db.collection("posts").doc(id).get().then((doc) => {
-            const post = doc.data();
-            $("").val(item.post);
+            Swal.fire({
+                title: 'Se ha eliminado correctamente',
+                icon: 'success',
+                text: 'Preciones Ok para continuar',
+                background: "#fff",
+                // color de fondo de la ventana[abajo]
+                backdrop: true,
+                timer: 8000,
+                // tiempo de ventana [abajo]
+                timerProgressBar: true,
+                allowOutsideClick: false,
+                confirmButtonColor: '#f37db4',
+            })
+            readPosts();
         })
             .catch((error) => {
-                alert("Error: ", error);
+                console.error("Detalle del Error: ", error);
             });
     }
 
@@ -292,7 +438,19 @@ $(document).ready(function () {
         db.collection("posts").doc(id_post).update({
             text: text_new,
         }).then(() => {
-            alert("Post Actualizado");
+            Swal.fire({
+                title: 'Post Actualizado',
+                icon: 'success',
+                text: 'Preciones Ok para continuar',
+                background: "#fff",
+                // color de fondo de la ventana[abajo]
+                backdrop: true,
+                timer: 8000,
+                // tiempo de ventana [abajo]
+                timerProgressBar: true,
+                allowOutsideClick: false,
+                confirmButtonColor: '#f37db4',
+            })
             readPosts();
         })
             .catch((error) => {
@@ -308,17 +466,23 @@ $(document).ready(function () {
         db.collection("posts").doc(id_post).update({
             post: post_upgrade,
         }).then(() => {
-            alert("Post Actualizado")
+            Swal.fire({
+                title: 'Post Actualizado',
+                icon: 'success',
+                text: 'Preciones Ok para continuar',
+                background: "#fff",
+                // color de fondo de la ventana[abajo]
+                backdrop: true,
+                timer: 8000,
+                // tiempo de ventana [abajo]
+                timerProgressBar: true,
+                allowOutsideClick: false,
+                confirmButtonColor: '#f37db4',
+            })
+            readPosts();
         })
             .catch((error) => {
                 alert("Error: ", error);
             })
     })
-
-//Contador de caracteres
-document.getElementById("status-text").addEventListener("input", function () {
-    var input = document.getElementById("status-text");
-    var p = document.getElementById("counter");
-    p.innerHTML = input.value.length;
-
 })
