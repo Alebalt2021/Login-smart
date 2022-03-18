@@ -87,7 +87,7 @@ $(document).ready(function () {
         e.preventDefault();
         //Variables de inputs
         var correo = $("#mail-new").val();
-        var clave = $("#pass-ojo").val();
+        var clave = $("#Input-pass").val();
 
         if (correo.length == 0 || clave.length == 0) {
             alertaComplete1.style.display = 'block';
@@ -96,7 +96,6 @@ $(document).ready(function () {
             }, 3000);
             return;
         }
-
         //Usar servicio de firebase para crear cuenta
         auth.createUserWithEmailAndPassword(correo, clave)
             .then(userCredential => {

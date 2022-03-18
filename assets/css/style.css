@@ -442,7 +442,7 @@ form.sign-in-form {
 }
 
 .alertVacio{
-  background-color: rgb(188, 70, 224) !important;
+  background-color: rgba(188, 70, 224, 0.651) !important;
   color: rgb(255, 255, 255) !important;
   padding-top: 14px;
   padding-bottom: 14px;
@@ -452,7 +452,7 @@ form.sign-in-form {
 }
 
 .alertError{
-  background-color: #f37db4 !important;
+  background-color: #152f44b9 !important;
   color: rgb(255, 255, 255) !important;
   padding-top: 14px;
   padding-bottom: 14px;
