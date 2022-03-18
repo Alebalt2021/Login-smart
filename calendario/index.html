@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calendario con moment.js y JavaScript | CodeMundo</title>
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/Pago.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+</head>
+<body>  
+    
+    <section class="section-calendario" >
+        <h2 class="subtitulo">Elige su fecha</h2>
+        <div class="root">
+            <div class="calendar" id="calendar">
+
+            </div>
+            
+        </div>
+        <div class="button-section">
+            <button >Siguiente</button>
+        </div>
+        
+    </section>
+    
+    <section class="section-fechas">
+            <h2 class="subtitulo">HORARIOS DISPONIBLES</h2>
+            <P class="parrafo" >Estos son los horarios de nuesto especialistas</P>
+            <div class="contenedor-de-horarios">
+                <div class="horario">
+                    <img src="img/icon.png" alt="horario">
+                    7:30 PM
+                </div>
+                <div class="horario">
+                    <img src="img/icon.png" alt="horario">
+                    8:00 PM
+                </div>
+                <div class="horario">
+                    <img src="img/icon.png" alt="horario">
+                    8:50 PM
+                </div>
+                <div class="horario">
+                    <img src="img/icon.png" alt="horario">
+                    9:00 AM
+                </div>
+                <div class="horario">
+                    <img src="img/icon.png" alt="horario">
+                    10:00 AM
+                </div>
+                <div class="horario">
+                    <img src="img/icon.png">
+                    2:00 PM
+                </div>
+            </div>
+            <div class="button-section">
+                <button >Siguiente</button>
+            </div>
+    </section>
+
+    <section class="pagar" >
+        <div class="contenedor">
+
+            <!-- Tarjeta -->
+            <section class="tarjeta" id="tarjeta">
+                <div class="delantera">
+                    <div class="logo-marca" id="logo-marca">
+                        <!-- <img src="img/logos/visa.png" alt=""> -->
+                    </div>
+                    <img src="img/chip-tarjeta.png" class="chip" alt="">
+                    <div class="datos">
+                        <div class="grupo" id="numero">
+                            <p class="label">Número Tarjeta</p>
+                            <p class="numero">#### #### #### ####</p>
+                        </div>
+                        <div class="flexbox">
+                            <div class="grupo" id="nombre">
+                                <p class="label">Nombre Tarjeta</p>
+                                <p class="nombre">Nombre y apellido</p>
+                            </div>
+    
+                            <div class="grupo" id="expiracion">
+                                <p class="label">Expiracion</p>
+                                <p class="expiracion"><span class="mes">MM</span> / <span class="year">AA</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="trasera">
+                    <div class="barra-magnetica"></div>
+                    <div class="datos">
+                        <div class="grupo" id="firma">
+                            <p class="label">Firma</p>
+                            <div class="firma"><p></p></div>
+                        </div>
+                        <div class="grupo" id="ccv">
+                            <p class="label">CCV</p>
+                            <p class="ccv"></p>
+                        </div>
+                    </div>
+                    <p class="leyenda">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus exercitationem, voluptates illo.</p>
+                    <a href="#" class="link-banco">www.tubanco.com</a>
+                </div>
+            </section>
+    
+            <!-- Contenedor Boton Abrir Formulario -->
+            <div class="contenedor-btn">
+                <button class="btn-abrir-formulario" id="btn-abrir-formulario">
+                    <img src="img/close.png" alt="">
+                </button>
+            </div>
+    
+            <!-- Formulario -->
+            <form action="" id="formulario-tarjeta" class="formulario-tarjeta">
+                <p class="ingresar" >Ingrese sus datos</p>
+                <div class="grupo">
+                    <label for="inputNumero">Correo electronico</label>
+                    <input type="text" required maxlength="19" autocomplete="off">
+                </div>
+                <div class="grupo">
+                    <label for="inputNumero">Número Tarjeta</label>
+                    <input type="text" id="inputNumero" maxlength="19" autocomplete="off">
+                </div>
+                <div class="grupo">
+                    <label for="inputNombre">Nombre</label>
+                    <input type="text" id="inputNombre" maxlength="19" autocomplete="off">
+                </div>
+                <div class="flexbox">
+                    <div class="grupo expira">
+                        <label for="selectMes">Expiracion</label>
+                        <div class="flexbox">
+                            <div class="grupo-select">
+                                <select name="mes" id="selectMes">
+                                    <option disabled selected>Mes</option>
+                                </select>
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                            <div class="grupo-select">
+                                <select name="year" id="selectYear">
+                                    <option disabled selected>Año</option>
+                                </select>
+                                <i class="fas fa-angle-down"></i>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="grupo ccv">
+                        <label for="inputCCV">CCV</label>
+                        <input type="text" id="inputCCV" maxlength="3">
+                    </div>
+                </div>
+                <button type="submit" class="btn-enviar">Enviar</button>
+            </form>
+        </div>
+    </section>
+    <form action="https://formsubmit.co/tcfernanda15@gmail.com" method="POST">
+        <input type="text"  name="name" placeholder="nomb" required>
+        <input type="email" name="email" placeholder="gmail" required>
+        <button type="submit">Send</button>
+   </form> 
+
+
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js"></script>
+    <script  type="text/javascript" src="js.js"></script>
+    <script type="text/javascript">
+        let calendar = new Calendar('calendar');
+        calendar.getElement().addEventListener('change', e => {
+            console.log(calendar.value().format('LLL'));
+        });
+
+        let calendar2 = new Calendar('calendar2');
+        calendar2.getElement().addEventListener('change', e => {
+            console.log(calendar2.value().format('LLL'));
+        });
+    </script>
+</body>
+</html>

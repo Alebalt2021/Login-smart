@@ -160,23 +160,6 @@ $(document).ready(function () {
         e.preventDefault();
         auth.signInWithPopup(provider)
             .then(result => {
-                Swal.fire({
-                    title: 'Ingreso con google',
-                    text: 'Preciones Ok para continuar',
-                    background: "#fff",
-                    // color de fondo de la ventana[abajo]
-                    backdrop: true,
-                    timer: 8000,
-                    // tiempo de ventana [abajo]
-                    timerProgressBar: true,
-                    allowOutsideClick: false,
-                    confirmButtonColor: '#f37db4',
-
-                    imageUrl: 'assets/img/google.gif',
-                    imageWidth: '340px',
-                    imageHeight: '260px',
-                    imageAlt: 'Google',
-                })
             })
             .catch(error => {
                 Swal.fire({
@@ -252,19 +235,17 @@ $(document).ready(function () {
 
     auth.onAuthStateChanged((user) => {
         if (user) {
+            location.href ="https://www.youtube.com/watch?v=J04uNivXGHs";
             //Sesion Iniciada
             $("#login-contenedor").hide();
             $("#registro").hide();
             $("#circulo-text").hide();
             $("#formularios").hide();
-            $("#content").show();
-            readPosts();
         }
         else {
             //Sesion finalizada
             $("#content").hide();
             $("#desaparecido").hide();
-            $("#login-contenedor").show();
         }
     })
 
