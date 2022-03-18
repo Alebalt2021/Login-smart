@@ -101,22 +101,11 @@ $(document).ready(function () {
         //Usar servicio de firebase para crear cuenta
         auth.createUserWithEmailAndPassword(correo, clave)
             .then(userCredential => {
-                $("#login-contenedor").show();
+
+                
                 $("#registro").hide();
 
-                Swal.fire({
-                    title: 'Cuenta Creada',
-                    icon: 'success',
-                    text: 'Preciones Ok para continuar',
-                    background: "#fff",
-                    // color de fondo de la ventana[abajo]
-                    backdrop: true,
-                    timer: 8000,
-                    // tiempo de ventana [abajo]
-                    timerProgressBar: true,
-                    allowOutsideClick: false,
-                    confirmButtonColor: '#f37db4',
-                })
+                location.href ="https://fernandaamelitc.github.io/Inicio/";
             })
             .catch((error) => {
                 let errorCode = error.code;
@@ -235,7 +224,7 @@ $(document).ready(function () {
 
     auth.onAuthStateChanged((user) => {
         if (user) {
-            location.href ="https://www.youtube.com/watch?v=J04uNivXGHs";
+            location.href ="https://fernandaamelitc.github.io/Inicio/";
             //Sesion Iniciada
             $("#login-contenedor").hide();
             $("#registro").hide();
