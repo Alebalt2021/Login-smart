@@ -1,0 +1,162 @@
+
+.mobile-nav-button {
+		position: absolute;
+		right: 355px;
+		top: 24px;
+		z-index:9;
+	}
+/* Overlay style */
+
+
+
+/* Effects */
+.overlay-door {
+	visibility: hidden;
+	width: 0;
+	left:49.99%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+	-webkit-transition: width 0.5s 0.3s, visibility 0s 0.8s;
+	transition: width 0.5s 0.3s, visibility 0s 0.8s;
+}
+
+.overlay-door.open {
+	visibility: visible;
+	width: 100%;
+	-webkit-transition: width 0.5s;
+	transition: width 0.5s;
+}
+
+.overlay-door form {
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translateY(-50%) translateX(-50%);
+	transform: translateY(-50%) translateX(-50%);
+	width: 45%;
+}
+
+.overlay-door form,
+.overlay-door .overlay-close {
+	opacity: 0;
+	-webkit-transition: opacity 0.3s 0.5s;
+	transition: opacity 0.3s 0.5s;
+}
+
+.overlay-door.open form,
+.overlay-door.open .overlay-close {
+	opacity: 1;
+	-webkit-transition-delay: 0.5s;
+	transition-delay: 0.5s;
+}
+
+.overlay-door.close form,
+.overlay-door.close .overlay-close {
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+}
+
+/*--/responsive--*/
+@media(max-width:1366px) {
+    .mobile-nav-button {
+        position: absolute;
+        right: 245px;
+        top: 24px;
+    }
+}
+@media(max-width:1280px) {
+    .mobile-nav-button {
+        position: absolute;
+        right: 230px;
+        top: 24px;
+    }
+}
+@media (max-width: 1080px){
+    .mobile-nav-button {
+        position: absolute;
+        right: 200px;
+        top: 24px;
+    }
+}
+@media (max-width: 1050px){
+    .mobile-nav-button {
+        position: absolute;
+        right: 195px;
+        top: 24px;
+    }
+    .overlay-door form {
+        width: 70%;
+    }
+}
+@media (max-width: 1024px){
+    .mobile-nav-button {
+        position: absolute;
+        right: 185px;
+        top: 24px;
+    }
+}
+@media (max-width:767px){
+    .mobile-nav-button {
+        position: absolute;
+        right: 185px;
+        top: 36px;
+    }
+}
+@media (max-width:640px){
+    .mobile-nav-button {
+        position: absolute;
+        right: 112px;
+        top: 36px;
+    }
+    .overlay-door form {
+        width: 90%;
+    }
+}
+@media (max-width:480px){
+    .mobile-nav-button {
+        position: absolute;
+        right: 70px;
+        top: 36px;
+    }
+
+}
+@media (max-width:375px){
+    .mobile-nav-button {
+        position: absolute;
+        right: 46px;
+        top: 36px;
+    }
+}
+/*--//responsive--*/
+button.googles-cart {
+    font-size: 1.4em;
+    color: #333;
+    border: none;
+      border-left-color: currentcolor;
+      border-left-style: none;
+      border-left-width: medium;
+    text-align: center;
+    border-left: none !important;
+    background: none;
+    margin-top: 0.5em;
+    cursor: pointer;
+  }
+.googles-cart {
+    font-size: 1em;
+    color: #fff;
+    margin: 0;
+      margin-top: 0px;
+    text-decoration: none;
+    text-transform: capitalize;
+    border: none;
+    background: none;
+    outline: none;
+    -webkit-transition: .5s all;
+    -moz-transition: .5s all;
+    transition: .5s all;
+  }
+  .googles.single-item {
+    float: right;
+    width: 10%;
+  }
+
+  
